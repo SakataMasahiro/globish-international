@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globish International Co., Ltd. | グローバル統合経営支援</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3a5c;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9cc;
+    --white: #ffffff;
+    --off-white: #f8f6f1;
+    --gray-light: #e8e4dc;
+    --gray-mid: #9a9590;
+    --gray-dark: #4a4540;
+    --text-primary: #1a1510;
+    --text-secondary: #5a5550;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    background: var(--off-white);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 4rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+    background: transparent;
+  }
+  nav.scrolled {
+    background: rgba(10, 22, 40, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .nav-logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo-text span { color: var(--gold); }
+
+  .powered-by {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 2rem;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 20px;
+    padding: 6px 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .powered-by:hover {
+    border-color: var(--gold);
+    background: rgba(10,22,40,0.95);
+  }
+  .powered-by-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .powered-by-name {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    padding: 9px 22px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26, 58, 92, 0.6) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .hero-orb {
+    position: absolute;
+    width: 600px; height: 600px;
+    right: -100px; top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .hero-orb::before {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.06);
+  }
+  .hero-orb::after {
+    content: '';
+    position: absolute;
+    inset: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.04);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+    padding-top: 120px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-eyebrow-line {
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-eyebrow-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 13vw, 12rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 0.95;
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 60px rgba(0,0,0,0.5);
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-size: 1.08em;
+    text-shadow: 0 0 100px rgba(201,168,76,0.6);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+  }
+  .btn-secondary:hover { color: var(--gold); }
+  .btn-secondary svg { transition: var(--transition); }
+  .btn-secondary:hover svg { transform: translateX(4px); }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 4rem;
+    display: flex;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.2s forwards;
+  }
+  .scroll-indicator span {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .section-tag-line { width: 30px; height: 1px; background: var(--gold); }
+  .section-tag-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .section-title.light { color: var(--white); }
+
+  /* ── MISSION ── */
+  .mission {
+    padding: 9rem 0;
+    background: var(--white);
+  }
+  .mission-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .mission-left { }
+  .mission-intro {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .mission-quote {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-left: 3px solid var(--gold);
+    background: var(--off-white);
+    border-radius: 0 8px 8px 0;
+  }
+  .mission-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  .mission-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .value-card {
+    padding: 2rem;
+    background: var(--off-white);
+    border-radius: 8px;
+    border: 1px solid var(--gray-light);
+    transition: var(--transition);
+  }
+  .value-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .value-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .value-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .value-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 9rem 0;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .services-sub {
+    max-width: 360px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .service-item {
+    background: var(--navy-mid);
+    padding: 3rem;
+    transition: var(--transition);
+    cursor: default;
+  }
+  .service-item:hover {
+    background: var(--navy-light);
+  }
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: rgba(201,168,76,0.15);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .service-icon-wrap {
+    width: 52px; height: 52px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .service-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .service-features li {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .service-features li::before {
+    content: '';
+    width: 16px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .partner-recruiting {
+    opacity: 0.5;
+    border-style: dashed;
+  }
+  .partner-recruiting:hover {
+    opacity: 0.75;
+    border-style: dashed;
+  }
+  .partner-recruiting-placeholder span {
+    font-size: 1.8rem;
+    color: var(--gray-mid);
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  /* ── STRENGTHS ── */
+  .strengths {
+    padding: 9rem 0;
+    background: var(--off-white);
+  }
+  .strengths-header { margin-bottom: 4rem; }
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .strength-card {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .strength-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+  }
+  .strength-card:hover::before { transform: scaleX(1); }
+  .strength-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+  .strength-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .strength-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .strength-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .strength-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .strength-list li {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .strength-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  /* ── VISION ── */
+  .vision {
+    padding: 9rem 0;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  }
+  .vision-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+  }
+  .vision-text .section-title.light { margin-bottom: 1.5rem; }
+  .vision-body {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+  }
+  .vision-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .vision-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .vision-item-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .vision-item-text {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+
+  .vision-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 3rem;
+  }
+  .vision-card-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .vision-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .vision-card-item { }
+  .vision-card-item-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.5rem;
+  }
+  .vision-card-item-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--white);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .vision-divider {
+    height: 1px;
+    background: rgba(201,168,76,0.15);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 9rem 0;
+    background: var(--white);
+  }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
+  }
+  .contact-info { }
+  .contact-info .section-title { margin-bottom: 1.5rem; }
+  .contact-body {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .contact-detail-icon {
+    width: 36px; height: 36px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-detail-label {
+    font-size: 10px;
+    color: var(--gray-mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .contact-detail-value {
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  /* Form */
+  .contact-form-wrap {
+    background: var(--off-white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+    padding: 3rem;
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin-bottom: 2rem;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .form-input, .form-textarea, .form-select {
+    padding: 12px 16px;
+    border: 1px solid var(--gray-light);
+    border-radius: 6px;
+    background: var(--white);
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+    outline: none;
+    appearance: none;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+  }
+  .form-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--gray-mid);
+    margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-brand-icon {
+    width: 32px; height: 32px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .footer-brand-name {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .lang-btn {
+    padding: 5px 12px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ── MOBILE MENU ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    width: 24px; height: 1.5px;
+    background: var(--white);
+    transition: var(--transition);
+  }
+
+
+  /* ── PARTNERS SECTION ── */
+  .partners-section {
+    padding: 9rem 0;
+    background: var(--white);
+  }
+  .partners-header {
+    max-width: 680px;
+    margin-bottom: 3.5rem;
+  }
+  .partners-header .section-title { margin: 0.75rem 0 1rem; }
+  .partners-sub {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .partner-card {
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  .partner-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border-color: var(--gold);
+  }
+
+  .partner-logo-area {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .partner-logo-placeholder {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed var(--gray-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .partner-logo-placeholder span {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-mid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .partner-logo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .partner-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .partner-region {
+    font-size: 11px;
+    color: var(--gray-mid);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .partner-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .partner-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    flex: 1;
+    margin-top: 0.25rem;
+  }
+  .partner-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: var(--transition);
+  }
+  .partner-link:hover { color: var(--navy); }
+
+  /* Partner CTA bar */
+  .partners-cta {
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+  }
+  .partners-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .partners-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .partners-cta-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .partners-grid { grid-template-columns: 1fr; }
+    .partners-cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  .tascal-section {
+    padding: 9rem 0 7rem;
+    background: var(--navy-mid);
+    position: relative;
+    overflow: hidden;
+  }
+  .tascal-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% 30%, rgba(201,168,76,0.05) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 60% at 85% 70%, rgba(26,58,92,0.5) 0%, transparent 55%);
+  }
+  .tascal-header {
+    max-width: 760px;
+    margin-bottom: 3.5rem;
+  }
+  .tascal-header .section-title { margin: 0.75rem 0 1.25rem; }
+  .tascal-lead {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.9;
+  }
+
+  /* Philosophy Banner */
+  .philosophy-banner {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .philosophy-quote {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 280px;
+  }
+  .philosophy-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 0.7;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+  .philosophy-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+  .philosophy-sig {
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  /* 3 Global Brands */
+  .tascal-globals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .tascal-global-card {
+    background: var(--navy);
+    padding: 2.5rem;
+    transition: var(--transition);
+    position: relative;
+  }
+  .tascal-global-card:hover { background: var(--navy-light); }
+  .tg-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    margin-bottom: 1.25rem;
+  }
+  .tg-badge-asia { background: rgba(45,180,130,0.12); color: #4ecba0; border-color: rgba(45,180,130,0.3); }
+  .tg-badge-nippon { background: rgba(220,80,80,0.12); color: #f08080; border-color: rgba(220,80,80,0.3); }
+  .tg-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .tg-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .tg-name span { color: var(--gold); font-size: 1.3rem; }
+  .tg-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+  .tg-arrow-down {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+
+  /* Nippon sub-brands */
+  .nippon-subbrand-wrap {
+    margin-top: 0;
+  }
+  .nippon-connector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .connector-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,168,76,0.05), rgba(201,168,76,0.3), rgba(201,168,76,0.05));
+  }
+  .connector-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .nippon-subbrands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .sub-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: var(--transition);
+    position: relative;
+  }
+  .sub-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.3); }
+  .sub-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .sub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .sub-target {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .sub-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .sub-link {
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+  }
+  .sub-link:hover { color: var(--gold-light); }
+  .sub-badge-coming {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Bottom CTA */
+  .tascal-cta {
+    margin-top: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .tascal-cta-text {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 900px) {
+    .tascal-globals { grid-template-columns: 1fr; }
+    .nippon-subbrands { grid-template-columns: 1fr; }
+    .philosophy-banner { flex-direction: column; padding: 2rem; }
+  }
+
+    .hamburger { display: flex; }
+    .section-inner { padding: 0 2rem; }
+    .hero-content { padding: 0 2rem; padding-top: 80px; }
+    .hero-stats { right: 2rem; bottom: 6rem; gap: 2rem; }
+    .hero-title { font-size: 2.8rem; }
+    .mission-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .mission-values { grid-template-columns: 1fr 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .vision-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; padding: 3rem 2rem; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- POWERED BY -->
+<a href="https://tascal-dental.vercel.app" class="powered-by" target="_blank">
+  <span class="powered-by-label">Powered by</span>
+  <span class="powered-by-name">Globish International</span>
+</a>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">GI</div>
+    <div class="nav-logo-text">Globish <span>International</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mission">会社概要</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#tascal">Tascal</a></li>
+    <li><a href="#partners">パートナー</a></li>
+    <li><a href="#strengths">強み</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active">日本語</button>
+      <button class="lang-btn">English</button>
+    </div>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Kuala Lumpur, Malaysia</span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(3.2rem,8.4vw,7.8rem);font-weight:700;color:#ffffff;line-height:0.95;margin-bottom:2.5rem;letter-spacing:-0.03em;text-shadow:0 4px 60px rgba(0,0,0,0.5);">
+      グローバルに<br>挑戦する企業の、<br><em style="font-style:italic;color:#c9a84c;display:block;font-size:1.1em;text-shadow:0 0 100px rgba(201,168,76,0.6);">最高のパートナー</em>
+    </h1>
+
+    <p class="hero-sub">
+      経営戦略・人材・デジタル変革・海外進出まで。<br>
+      先進AIと多言語力で、あなたのビジネスをワールドクラスへ。
+    </p>
+
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">サービスを見る</a>
+      <a href="#contact" class="btn-secondary">
+        お問い合わせ
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">5+</div>
+      <div class="hero-stat-label">アジア拠点国</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">5言語</div>
+      <div class="hero-stat-label">多言語対応</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">AI</div>
+      <div class="hero-stat-label">先端テクノロジー活用</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="section-inner">
+    <div class="mission-layout">
+      <div class="mission-left reveal">
+        <div class="section-tag">
+          <div class="section-tag-line"></div>
+          <span class="section-tag-text">About Us</span>
+        </div>
+        <h2 class="section-title">会社概要 &<br>コーポレートミッション</h2>
+
+        <p class="mission-intro">
+          Globish International Co., Ltd.は、グローバル展開を目指す企業様の戦略的パートナーとして、統合経営支援サービスを提供しています。経営戦略、組織開発、デジタル変革、海外進出サポートまでお客様のビジネス成長をサポートいたします。
+        </p>
+
+        <div class="mission-quote">
+          <p>
+            「社会の平和と繁栄に貢献するため、先進AIツールなどの先端テクノロジーを駆使してお客様のご要望にお応えし、会社のご発展に寄与できる統合経営支援サービスを提供します。」
+          </p>
+        </div>
+      </div>
+
+      <div class="mission-values reveal reveal-delay-2">
+        <div class="value-card">
+          <div class="value-icon">⚖️</div>
+          <div class="value-title">誠実さ</div>
+          <div class="value-desc">すべての関係においてインテグリティを最優先に、誠実で透明性の高いビジネスを実践します。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <div class="value-title">革新性</div>
+          <div class="value-desc">AIを含む最先端テクノロジーを積極的に採用し、常に時代の先を走るソリューションを提供します。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌏</div>
+          <div class="value-title">グローバル視点</div>
+          <div class="value-desc">アジア5カ国以上に広がるネットワークと多言語力で、ボーダーレスなビジネスを支援します。</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">パートナーシップ</div>
+          <div class="value-desc">お客様の成功を自社の成功と考え、真のパートナーとして長期的な関係を築きます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="section-tag">
+          <div class="section-tag-line"></div>
+          <span class="section-tag-text">Services</span>
+        </div>
+        <h2 class="section-title light">統合経営支援サービス</h2>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.875rem;margin-top:0.5rem;">お客様のビジネスを加速させる4つの柱</p>
+      </div>
+      <p class="services-sub reveal reveal-delay-2">
+        それぞれのサービスは独立していますが、組み合わせることでシナジーを生み、お客様の競争力を最大化します。
+      </p>
+    </div>
+
+    <div class="services-grid reveal reveal-delay-1">
+      <div class="service-item">
+        <span class="service-num">01</span>
+        <div class="service-icon-wrap">♟️</div>
+        <div class="service-title">経営戦略コンサルティング</div>
+        <p class="service-desc">グローバル市場での競争力を高めるための戦略立案と実行支援</p>
+        <ul class="service-features">
+          <li>戦略インテリジェンス情報サービス</li>
+          <li>市場分析・競合分析</li>
+          <li>成長戦略の立案</li>
+          <li>実行ロードマップ作成</li>
+        </ul>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">02</span>
+        <div class="service-icon-wrap">👥</div>
+        <div class="service-title">人材派遣サービス</div>
+        <p class="service-desc">IT人材など高度人材を派遣し、組織力を強化</p>
+        <ul class="service-features">
+          <li>英語・日本語のできる高度人材派遣</li>
+          <li>ミャンマーで優秀な人材確保</li>
+          <li>政治経済の迅速な調査・報告業務</li>
+          <li>的確でスピーディな業務遂行</li>
+        </ul>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">03</span>
+        <div class="service-icon-wrap">💻</div>
+        <div class="service-title">デジタル変革（DX）支援</div>
+        <p class="service-desc">デジタル技術を活用したビジネスモデル変革と業務効率化。独自の<strong style="color:var(--gold);">Tascalブランド</strong>でグローバル・アジア・日本の中小企業を強力にサポート。</p>
+        <ul class="service-features">
+          <li>DX戦略策定</li>
+          <li>システム導入支援</li>
+          <li>データ活用・分析基盤構築</li>
+          <li>業務プロセス改革</li>
+        </ul>
+        <a href="#tascal" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-size:0.78rem;color:var(--gold);text-decoration:none;letter-spacing:0.05em;">
+          Tascalブランド詳細 →
+        </a>
+      </div>
+
+      <div class="service-item">
+        <span class="service-num">04</span>
+        <div class="service-icon-wrap">✈️</div>
+        <div class="service-title">海外進出サポート</div>
+        <p class="service-desc">市場調査から現地法人設立まで、海外展開を全面サポート</p>
+        <ul class="service-features">
+          <li>市場調査・進出可能性診断</li>
+          <li>現地パートナー紹介</li>
+          <li>法人設立・許認可取得支援</li>
+          <li>現地マネジメント支援</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASCAL ECOSYSTEM -->
+<section class="tascal-section" id="tascal">
+  <div class="tascal-bg"></div>
+  <div class="section-inner">
+
+    <!-- Header -->
+    <div class="tascal-header reveal">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">DX Brand Portfolio</span>
+      </div>
+      <h2 class="section-title light">Tascalブランドが<br>中小企業の<em style="font-style:italic;color:var(--gold);">強い味方</em>になる</h2>
+      <p class="tascal-lead">
+        日本・アジア・世界で頑張るすべての中小企業へ。<br>
+        Globish Internationalは「Tascal」ブランドを通じ、業種特化型のDXソリューションで繁栄と幸福の実現に最善を尽くします。
+      </p>
+    </div>
+
+    <!-- Philosophy Banner -->
+    <div class="philosophy-banner reveal reveal-delay-1">
+      <div class="philosophy-quote">
+        <span class="philosophy-mark">"</span>
+        <p>日本、アジア、世界で頑張っている中小企業の強い味方になりたい。そして繁栄と幸福の実現に最善を尽くすことが、当社の企業哲学と使命です。</p>
+      </div>
+      <div class="philosophy-sig">— Masahiro Sakata, CEO</div>
+    </div>
+
+    <!-- 3 Global Brands -->
+    <div class="tascal-globals reveal reveal-delay-1">
+      <div class="tascal-global-card tascal-global">
+        <div class="tg-badge">Global</div>
+        <div class="tg-icon">🌍</div>
+        <div class="tg-name">Tascal<br><span>Global Solution</span></div>
+        <p class="tg-desc">世界市場を視野に入れた企業向けのグローバルDXソリューション。多言語・多通貨対応のシステム基盤でボーダーレスな事業展開を支援します。</p>
+      </div>
+      <div class="tascal-global-card tascal-asia">
+        <div class="tg-badge tg-badge-asia">Asia</div>
+        <div class="tg-icon">🌏</div>
+        <div class="tg-name">Tascal<br><span>Asia Solution</span></div>
+        <p class="tg-desc">東南アジア・東アジア市場に特化したDX支援。現地の商慣習・規制に精通したチームが、アジア進出・現地展開をテクノロジーで加速させます。</p>
+      </div>
+      <div class="tascal-global-card tascal-nippon">
+        <div class="tg-badge tg-badge-nippon">Japan</div>
+        <div class="tg-icon">🗾</div>
+        <div class="tg-name">Tascal<br><span>Nippon Solution</span></div>
+        <p class="tg-desc">日本の中小企業に寄り添った業種特化型DXプラットフォーム。現場目線の使いやすさと、AIによる業務自動化で経営効率を劇的に改善します。</p>
+        <div class="tg-arrow-down">▼ 傘下ブランド</div>
+      </div>
+    </div>
+
+    <!-- Nippon Sub-brands -->
+    <div class="nippon-subbrand-wrap reveal reveal-delay-2">
+      <div class="nippon-connector">
+        <div class="connector-line"></div>
+        <div class="connector-label">Tascal Nippon Solution 傘下</div>
+        <div class="connector-line"></div>
+      </div>
+      <div class="nippon-subbrands">
+
+        <div class="sub-card sub-dental">
+          <div class="sub-icon">🦷</div>
+          <div class="sub-name">Tascal Dental</div>
+          <div class="sub-target">歯科医院向け</div>
+          <p class="sub-desc">予約管理・患者コミュニケーション・LINE自動配信・経営分析まで。歯科医院のデジタル化をトータルサポート。</p>
+          <a href="https://tascal-dental.vercel.app" target="_blank" class="sub-link">サービスを見る →</a>
+        </div>
+
+        <div class="sub-card sub-beauty">
+          <div class="sub-icon">💄</div>
+          <div class="sub-name">Love Beauty</div>
+          <div class="sub-target">美容院向け</div>
+          <p class="sub-desc">スタイリスト管理・顧客カルテ・SNS連携・リピート促進まで。美容院の集客・運営をスマートに変革します。</p>
+          <div class="sub-badge-coming">Coming Soon</div>
+        </div>
+
+        <div class="sub-card sub-touch">
+          <div class="sub-icon">🙌</div>
+          <div class="sub-name">Tascal Touch</div>
+          <div class="sub-target">接骨院・セラピー向け</div>
+          <p class="sub-desc">施術記録・予約最適化・LINE連携・保険請求サポートまで。接骨院・セラピーサロンの経営を丸ごとDX化します。</p>
+          <div class="sub-badge-coming">Coming Soon</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="tascal-cta reveal reveal-delay-3">
+      <p class="tascal-cta-text">あなたのビジネスに最適なTascalソリューションをご提案します</p>
+      <a href="#contact" class="btn-primary">無料相談を申し込む</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-section" id="partners">
+  <div class="section-inner">
+
+    <div class="partners-header reveal">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">Partners</span>
+      </div>
+      <h2 class="section-title">パートナー企業</h2>
+      <p class="partners-sub">Globish Internationalは、アジア・日本・世界の各地域で信頼できるパートナー企業と連携し、お客様により広く・より深いソリューションを提供します。</p>
+    </div>
+
+    <!-- Partner Cards Grid -->
+    <div class="partners-grid reveal reveal-delay-1">
+
+      <!-- Shine Hill Co., Ltd. -->
+      <div class="partner-card">
+        <div class="partner-logo-area">
+          <div class="partner-logo-placeholder">
+            <span style="font-size:13px;font-weight:600;color:var(--navy);letter-spacing:0.05em;">Shine Hill</span>
+          </div>
+        </div>
+        <div class="partner-info">
+          <div class="partner-region">🇲🇲 Myanmar</div>
+          <div class="partner-name">Shine Hill Co., Ltd.</div>
+          <a href="https://shinehillagency.com" class="partner-link" target="_blank">shinehillagency.com →</a>
+        </div>
+      </div>
+
+      <!-- Globish Academia Thailand -->
+      <div class="partner-card">
+        <div class="partner-logo-area">
+          <div class="partner-logo-placeholder">
+            <span style="font-size:13px;font-weight:600;color:var(--navy);letter-spacing:0.05em;">Globish Academia</span>
+          </div>
+        </div>
+        <div class="partner-info">
+          <div class="partner-region">🇹🇭 Thailand</div>
+          <div class="partner-name">Globish Academia Thailand</div>
+          <a href="https://www.globish.co.th" class="partner-link" target="_blank">globish.co.th →</a>
+        </div>
+      </div>
+
+      <!-- Recruiting 2 -->
+      <div class="partner-card partner-recruiting">
+        <div class="partner-logo-area">
+          <div class="partner-logo-placeholder partner-recruiting-placeholder">
+            <span>+</span>
+          </div>
+        </div>
+        <div class="partner-info">
+          <div class="partner-region" style="color:var(--gray-mid);">パートナー募集中</div>
+          <div class="partner-name" style="color:var(--gray-mid);font-style:italic;font-size:0.95rem;">Your Company Here</div>
+          <p class="partner-desc">Globish Internationalとのパートナーシップにご興味のある企業様は、ぜひお気軽にお問い合わせください。</p>
+          <a href="#contact" class="partner-link">お問い合わせ →</a>
+        </div>
+      </div>
+
+    </div><!-- /partners-grid -->
+
+    <!-- Partner CTA -->
+    <div class="partners-cta reveal reveal-delay-2">
+      <div class="partners-cta-inner">
+        <div>
+          <div class="partners-cta-title">パートナーシップのご相談</div>
+          <p class="partners-cta-sub">Globish Internationalとのパートナー提携にご興味のある企業様は、ぜひお問い合わせください。</p>
+        </div>
+        <a href="#contact" class="btn-primary" style="white-space:nowrap;">お問い合わせ →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="strengths" 
+<section id="philosophy" style="padding:6rem 0;background:#ffffff;border-top:1px solid #f0f0f0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <p style="font-size:0.72rem;font-weight:600;letter-spacing:3px;color:#1A2456;text-transform:uppercase;margin-bottom:0.8rem;opacity:0.6;">Philosophy &amp; Approach</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#1a1a2e;margin-bottom:1rem;line-height:1.3;">Tascal Nippon の経営哲学と基本姿勢</h2>
+      <p style="font-size:1rem;color:#666;max-width:560px;margin:0 auto;line-height:1.75;">すべてのサービスの根底に流れる、揺るぎない3つの軸</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2rem;">
+      <div style="background:#ffffff;border:1px solid #e8ebf7;border-top:4px solid #1A2456;border-radius:12px;padding:2rem 1.75rem;" onmouseover="this.style.boxShadow='0 12px 40px rgba(26,36,86,0.10)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#e8ebf7;color:#1A2456;font-size:0.9rem;font-weight:700;margin-bottom:1.25rem;">I</div>
+        <p style="font-size:0.68rem;font-weight:600;letter-spacing:2px;color:#1A2456;text-transform:uppercase;opacity:0.55;margin-bottom:0.4rem;">Management Philosophy</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin-bottom:1rem;">ドラッカー経営哲学</h3>
+        <hr style="border:none;border-top:1px solid #eee;margin-bottom:1rem;">
+        <p style="font-size:0.92rem;color:#555;line-height:1.8;margin-bottom:1.25rem;">ピーター・ドラッカーの経営哲学と世界の多くの成功事例をベースに設計。「事業の目的は顧客の創造である」という原則のもと、お客様が本当に必要としている価値を継続的に追求します。</p>
+        <span style="display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1px;padding:4px 14px;border-radius:20px;border:1px solid #1A2456;color:#1A2456;background:#f0f2fb;">知識と実践の融合</span>
+      </div>
+      <div style="background:#ffffff;border:1px solid #fde8e8;border-top:4px solid #C0392B;border-radius:12px;padding:2rem 1.75rem;" onmouseover="this.style.boxShadow='0 12px 40px rgba(192,57,43,0.10)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#fde8e8;color:#C0392B;font-size:0.9rem;font-weight:700;margin-bottom:1.25rem;">II</div>
+        <p style="font-size:0.68rem;font-weight:600;letter-spacing:2px;color:#C0392B;text-transform:uppercase;opacity:0.7;margin-bottom:0.4rem;">Corporate Motto</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin-bottom:1rem;">誠実さと良心的な姿勢</h3>
+        <hr style="border:none;border-top:1px solid #eee;margin-bottom:1rem;">
+        <p style="font-size:0.92rem;color:#555;line-height:1.8;margin-bottom:1.25rem;">人々の繁栄と幸せに愛情を持って貢献すること。これがTascal Nipponの企業使命です。誠実さと良心的であることをモットーに、お客様・業界・社会すべてに対して正直で公正なサービスを提供します。</p>
+        <span style="display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1px;padding:4px 14px;border-radius:20px;border:1px solid #C0392B;color:#993C1D;background:#fef3f0;">Tascal のモットー</span>
+      </div>
+      <div style="background:#ffffff;border:1px solid #d4eee6;border-top:4px solid #0F6E56;border-radius:12px;padding:2rem 1.75rem;" onmouseover="this.style.boxShadow='0 12px 40px rgba(15,110,86,0.10)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#d4eee6;color:#0F6E56;font-size:0.9rem;font-weight:700;margin-bottom:1.25rem;">III</div>
+        <p style="font-size:0.68rem;font-weight:600;letter-spacing:2px;color:#0F6E56;text-transform:uppercase;opacity:0.7;margin-bottom:0.4rem;">Technology</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin-bottom:1rem;">先端AIアルゴリズムの活用</h3>
+        <hr style="border:none;border-top:1px solid #eee;margin-bottom:1rem;">
+        <p style="font-size:0.92rem;color:#555;line-height:1.8;margin-bottom:1.25rem;">独自の先端AIアルゴリズムを駆使し、使いやすさと大きな成果を両立。お客様が難しい操作なしに、最大の経営効果を実感できるシステムを継続的に提供します。</p>
+        <span style="display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1px;padding:4px 14px;border-radius:20px;border:1px solid #0F6E56;color:#0F6E56;background:#eaf7f2;">テクノロジーと人間性の融合</span>
+      </div>
+    </div>
+    <div style="background:#f8f9fc;border:1px solid #e8ebf7;border-left:4px solid #1A2456;border-radius:10px;padding:1.4rem 1.75rem;display:flex;align-items:flex-start;gap:1rem;">
+      <div style="font-size:1.4rem;flex-shrink:0;margin-top:2px;color:#1A2456;opacity:0.5;">◈</div>
+      <div>
+        <p style="font-size:0.95rem;font-weight:700;color:#1a1a2e;margin-bottom:0.3rem;">この3つの軸が一体となって、Tascal Nipponの全サービスを支えています。</p>
+        <p style="font-size:0.88rem;color:#666;line-height:1.75;margin:0;">ドラッカーが説く「顧客の創造」、誠実さという普遍的な価値、そしてAIという最先端技術。この3つが融合したとき、お客様にとって本当に役立つサービスが生まれます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+id="strengths-anchor">
+  <div class="section-inner">
+    <div class="strengths-header reveal">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">Why Choose Us</span>
+      </div>
+      <h2 class="section-title">Globish Internationalが<br>選ばれる理由</h2>
+    </div>
+
+    <div class="strengths-grid">
+      <div class="strength-card reveal reveal-delay-1">
+        <div class="strength-icon">🌐</div>
+        <div class="strength-title">グローバルネットワーク</div>
+        <p class="strength-desc">アジア諸国5カ国以上に広がるネットワークと現地パートナーシップで、迅速かつ的確なグローバル展開を支援します。</p>
+        <ul class="strength-list">
+          <li>アジアにパートナー拠点</li>
+          <li>現地の規制・商習慣に精通</li>
+          <li>タイムリーな情報提供</li>
+        </ul>
+      </div>
+
+      <div class="strength-card reveal reveal-delay-2">
+        <div class="strength-icon">💬</div>
+        <div class="strength-title">多言語対応能力</div>
+        <p class="strength-desc">英語、日本語、中国語、マレー語、ミャンマー語など多言語でのコミュニケーションで、文化の壁を越えたビジネスを実現します。</p>
+        <ul class="strength-list">
+          <li>母国語レベルの専門家</li>
+          <li>文化的背景を踏まえた対応</li>
+          <li>翻訳・通訳サービスの提供</li>
+        </ul>
+      </div>
+
+      <div class="strength-card reveal reveal-delay-3">
+        <div class="strength-icon">⚙️</div>
+        <div class="strength-title">カスタマイズソリューション</div>
+        <p class="strength-desc">お客様の課題に合わせた完全オーダーメイドのソリューション提供。パッケージではなく、企業固有の課題を解決します。</p>
+        <ul class="strength-list">
+          <li>パッケージではなく個別設計</li>
+          <li>企業規模・業種に応じた柔軟性</li>
+          <li>段階的な導入とスケーラブルな展開</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / MISSION DETAIL -->
+<section class="vision" id="vision">
+  <div class="vision-bg"></div>
+  <div class="section-inner">
+    <div class="vision-layout">
+      <div class="vision-text reveal">
+        <div class="section-tag">
+          <div class="section-tag-line"></div>
+          <span class="section-tag-text">Vision & Mission</span>
+        </div>
+        <h2 class="section-title light">私たちが目指す<br>世界とは</h2>
+        <p class="vision-body">
+          国境・言語・文化の壁を越えて、すべての企業がグローバルに活躍できる未来を創造します。先進AIテクノロジーと深い現地知識を融合させ、お客様一社一社に最適な道筋を提供します。
+        </p>
+        <div class="vision-items">
+          <div class="vision-item">
+            <div class="vision-item-dot"></div>
+            <p class="vision-item-text">企業が国境を越えて活躍できる環境を創造し、グローバルビジネスのスタンダードを確立する</p>
+          </div>
+          <div class="vision-item">
+            <div class="vision-item-dot"></div>
+            <p class="vision-item-text">お客様に包括的な経営支援サービスを提供し、持続的な成長と成功を実現する</p>
+          </div>
+          <div class="vision-item">
+            <div class="vision-item-dot"></div>
+            <p class="vision-item-text">社会の平和と繁栄に貢献するため、先端テクノロジーを駆使した革新的なソリューションを提供し続ける</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-card reveal reveal-delay-2">
+        <div class="vision-card-label">Company Profile</div>
+        <div class="vision-card-content">
+          <div class="vision-card-item">
+            <div class="vision-card-item-tag">Company Name</div>
+            <div class="vision-card-item-text">Globish International Co., Ltd.</div>
+          </div>
+          <div class="vision-divider"></div>
+          <div class="vision-card-item">
+            <div class="vision-card-item-tag">CEO</div>
+            <div class="vision-card-item-text">Masahiro Sakata</div>
+          </div>
+          <div class="vision-divider"></div>
+          <div class="vision-card-item">
+            <div class="vision-card-item-tag">Headquarters</div>
+            <div class="vision-card-item-text">28 Dutamas, Jalan Dutamas Raya,<br>North Mont Kiara, Kuala Lumpur, Malaysia</div>
+          </div>
+          <div class="vision-divider"></div>
+          <div class="vision-card-item">
+            <div class="vision-card-item-tag">Business Hours</div>
+            <div class="vision-card-item-text">9:00 – 18:00 (Malaysia Time)<br>Weekdays only</div>
+          </div>
+          <div class="vision-divider"></div>
+          <div class="vision-card-item">
+            <div class="vision-card-item-tag">Languages</div>
+            <div class="vision-card-item-text">日本語・English・中文・Bahasa・မြန်မာ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info reveal">
+        <div class="section-tag">
+          <div class="section-tag-line"></div>
+          <span class="section-tag-text">Contact</span>
+        </div>
+        <h2 class="section-title">まずはお気軽に<br>ご相談ください</h2>
+        <p class="contact-body">
+          ビジネスの課題解決に向けて、どんな小さなことでもお気軽にお問い合わせください。専門チームが迅速にご対応いたします。
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Address</div>
+              <div class="contact-detail-value">28 Dutamas, Jalan Dutamas Raya,<br>North Mont Kiara, Kuala Lumpur, Malaysia</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">Sakata.masahiro@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📱</div>
+            <div>
+              <div class="contact-detail-label">Mobile</div>
+              <div class="contact-detail-value">+60-11-1410-2451</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div>
+              <div class="contact-detail-label">Business Hours</div>
+              <div class="contact-detail-value">9:00 – 18:00 (Malaysia Time) / 平日のみ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <div class="form-title">お問い合わせフォーム</div>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">お名前 *</label>
+              <input type="text" class="form-input" placeholder="山田 太郎" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">会社名</label>
+              <input type="text" class="form-input" placeholder="株式会社〇〇">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">メールアドレス *</label>
+              <input type="email" class="form-input" placeholder="example@company.com" required>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">ご関心のサービス</label>
+              <select class="form-select form-input">
+                <option value="">選択してください</option>
+                <option>経営戦略コンサルティング</option>
+                <option>人材派遣サービス</option>
+                <option>デジタル変革（DX）支援</option>
+                <option>海外進出サポート</option>
+                <option>その他・複数</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">お問い合わせ内容 *</label>
+              <textarea class="form-textarea" placeholder="ご相談内容の詳細をご記入ください" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">送信する →</button>
+          <p class="form-note">通常1〜2営業日以内にご返信いたします</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-brand-icon">GI</div>
+    <span class="footer-brand-name">Globish International Co., Ltd.</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#mission">会社概要</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#strengths">強み</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Globish International Co., Ltd. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '送信しました ✓';
+    btn.style.background = '#2a6e4a';
+    setTimeout(() => {
+      btn.textContent = '送信する →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Lang toggle
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
