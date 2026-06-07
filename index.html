@@ -1295,6 +1295,231 @@
     color: rgba(255,255,255,0.6);
   }
 
+  /* ── MYANMAR STAFFING ── */
+  .myanmar-section {
+    padding: 9rem 0;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .myanmar-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(26,58,92,0.4) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .myanmar-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .myanmar-header .section-tag { justify-content: center; }
+  .myanmar-header .section-title { margin: 0.75rem 0 1rem; }
+  .myanmar-header p {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.875rem;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Stats strip */
+  .myanmar-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+  }
+  .myanmar-stat {
+    padding: 2.5rem 2rem;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+    transition: var(--transition);
+  }
+  .myanmar-stat:hover { background: rgba(201,168,76,0.06); }
+  .myanmar-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .myanmar-stat-unit { font-size: 1.2rem; color: var(--gold-light); }
+  .myanmar-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* 7 fields */
+  .myanmar-fields-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .myanmar-fields-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+  .myanmar-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+  .myanmar-field-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .myanmar-field-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+  }
+  .myanmar-field-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+  .myanmar-field-card:hover::before { transform: scaleX(1); }
+  .myanmar-field-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
+  .myanmar-field-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .myanmar-field-desc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /* Process */
+  .myanmar-process-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .myanmar-process-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+  .myanmar-process {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+  .myanmar-process::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(10% + 14px);
+    right: calc(10% + 14px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%);
+  }
+  .myanmar-process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.75rem;
+    position: relative;
+  }
+  .myanmar-process-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--navy-mid);
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+  }
+  .myanmar-process-step:hover .myanmar-process-dot {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .myanmar-process-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .myanmar-process-sub {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+  }
+
+  /* CTA bar */
+  .myanmar-cta {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 3rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .myanmar-cta-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .myanmar-cta-text p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  @media (max-width: 900px) {
+    .myanmar-stats { grid-template-columns: repeat(2, 1fr); }
+    .myanmar-fields-grid { grid-template-columns: repeat(2, 1fr); }
+    .myanmar-process { grid-template-columns: 1fr; gap: 1.5rem; }
+    .myanmar-process::before { display: none; }
+    .myanmar-cta { flex-direction: column; text-align: center; }
+  }
+
   @media (max-width: 900px) {
     .tascal-globals { grid-template-columns: 1fr; }
     .nippon-subbrands { grid-template-columns: 1fr; }
@@ -1338,6 +1563,7 @@
     <li><a href="#services">サービス</a></li>
     <li><a href="#tascal">Tascal</a></li>
     <li><a href="#partners">パートナー</a></li>
+    <li><a href="#myanmar-staffing">人材派遣</a></li>
     <li><a href="#strengths">強み</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
@@ -1719,6 +1945,140 @@
   </div>
 </section>
 
+<!-- MYANMAR STAFFING -->
+<section class="myanmar-section" id="myanmar-staffing">
+  <div class="section-inner">
+
+    <!-- Header -->
+    <div class="myanmar-header reveal">
+      <div class="section-tag" style="justify-content:center;">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">Myanmar Staffing</span>
+      </div>
+      <h2 class="section-title light">ミャンマー人材派遣サービス</h2>
+      <p>現地パートナー「Shine Hill Co., Ltd.」と連携し、英語・日本語対応の優秀なミャンマー人材を<br>日本・アジア企業へご紹介します。</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="myanmar-stats reveal reveal-delay-1">
+      <div class="myanmar-stat">
+        <div class="myanmar-stat-num">200<span class="myanmar-stat-unit">名+</span></div>
+        <div class="myanmar-stat-label">累計紹介実績</div>
+      </div>
+      <div class="myanmar-stat">
+        <div class="myanmar-stat-num">94<span class="myanmar-stat-unit">%</span></div>
+        <div class="myanmar-stat-label">採用定着率</div>
+      </div>
+      <div class="myanmar-stat">
+        <div class="myanmar-stat-num">3<span class="myanmar-stat-unit">週間</span></div>
+        <div class="myanmar-stat-label">平均マッチング期間</div>
+      </div>
+      <div class="myanmar-stat">
+        <div class="myanmar-stat-num">98<span class="myanmar-stat-unit">%</span></div>
+        <div class="myanmar-stat-label">企業満足度</div>
+      </div>
+    </div>
+
+    <!-- 7 Fields -->
+    <div class="reveal reveal-delay-1">
+      <div class="myanmar-fields-title">対応7分野</div>
+      <div class="myanmar-fields-grid">
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">💻</div>
+          <div class="myanmar-field-name">IT・ソフトウェア開発</div>
+          <div class="myanmar-field-desc">Web・アプリ開発、システム構築、データエンジニアリング</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">🏭</div>
+          <div class="myanmar-field-name">製造・品質管理</div>
+          <div class="myanmar-field-desc">生産管理、QC・QA、工場ライン管理</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">📊</div>
+          <div class="myanmar-field-name">会計・財務・経理</div>
+          <div class="myanmar-field-desc">簿記・財務報告、税務、コスト管理</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">📣</div>
+          <div class="myanmar-field-name">営業・マーケティング</div>
+          <div class="myanmar-field-desc">法人営業、SNS・デジタルマーケティング、市場調査</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">🎧</div>
+          <div class="myanmar-field-name">カスタマーサポート</div>
+          <div class="myanmar-field-desc">多言語対応、CRM管理、クレーム・問い合わせ対応</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">🏗️</div>
+          <div class="myanmar-field-name">建設・土木・インフラ</div>
+          <div class="myanmar-field-desc">施工管理、現場監督、CAD設計</div>
+        </div>
+
+        <div class="myanmar-field-card">
+          <div class="myanmar-field-icon">🏥</div>
+          <div class="myanmar-field-name">医療・ヘルスケア</div>
+          <div class="myanmar-field-desc">医療通訳、医療事務、クリニック運営サポート</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Hiring Process -->
+    <div class="reveal reveal-delay-2">
+      <div class="myanmar-process-title">採用プロセス</div>
+      <div class="myanmar-process">
+
+        <div class="myanmar-process-step">
+          <div class="myanmar-process-dot">01</div>
+          <div class="myanmar-process-label">ご相談・要件定義</div>
+          <div class="myanmar-process-sub">求めるスキル・言語・勤務形態をヒアリング</div>
+        </div>
+
+        <div class="myanmar-process-step">
+          <div class="myanmar-process-dot">02</div>
+          <div class="myanmar-process-label">候補者選定</div>
+          <div class="myanmar-process-sub">現地データベースから適性のある人材をスクリーニング</div>
+        </div>
+
+        <div class="myanmar-process-step">
+          <div class="myanmar-process-dot">03</div>
+          <div class="myanmar-process-label">書類・面接選考</div>
+          <div class="myanmar-process-sub">オンライン面接、スキルテスト、レファレンスチェック</div>
+        </div>
+
+        <div class="myanmar-process-step">
+          <div class="myanmar-process-dot">04</div>
+          <div class="myanmar-process-label">採用・入社手続き</div>
+          <div class="myanmar-process-sub">契約書類作成、ビザ・就労許可申請サポート</div>
+        </div>
+
+        <div class="myanmar-process-step">
+          <div class="myanmar-process-dot">05</div>
+          <div class="myanmar-process-label">就業後フォロー</div>
+          <div class="myanmar-process-sub">定期ミーティング、課題解決、長期定着支援</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="myanmar-cta reveal reveal-delay-3">
+      <div class="myanmar-cta-text">
+        <h3>ミャンマー人材についてご相談ください</h3>
+        <p>無料相談から始められます。まずはお気軽にお問い合わせください。</p>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;">無料相談を申し込む →</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- STRENGTHS -->
 <section class="strengths" 
 
@@ -2011,6 +2371,7 @@ id="strengths-anchor">
                 <option value="">選択してください</option>
                 <option>経営戦略コンサルティング</option>
                 <option>人材派遣サービス</option>
+                <option>ミャンマー人材派遣</option>
                 <option>デジタル変革（DX）支援</option>
                 <option>海外進出サポート</option>
                 <option>その他・複数</option>
@@ -2038,6 +2399,7 @@ id="strengths-anchor">
   <ul class="footer-links">
     <li><a href="#mission">会社概要</a></li>
     <li><a href="#services">サービス</a></li>
+    <li><a href="#myanmar-staffing">人材派遣</a></li>
     <li><a href="#strengths">強み</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
